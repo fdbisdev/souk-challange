@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
 import {
   Container,
   Title,
@@ -8,27 +8,30 @@ import {
   InputText,
   LoginButton,
   LoginText,
+  TitleWrapper,
 } from './styles';
 
 function Login() {
   return (
-    <Container>
-      <StatusBar
-        translucent
-        barStyle="light-content"
-        backgroundColor="transparent"
-      />
-      <View>
-        <Title>LOGIN</Title>
-        <Subtitle>Digite seu nome para continuar</Subtitle>
-      </View>
-      <FormWrapper>
-        <InputText />
-        <LoginButton>
-          <LoginText>OK</LoginText>
-        </LoginButton>
-      </FormWrapper>
-    </Container>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <Container>
+        <StatusBar
+          translucent
+          barStyle="light-content"
+          backgroundColor="transparent"
+        />
+        <TitleWrapper>
+          <Title>LOGIN</Title>
+          <Subtitle>Digite seu nome para continuar</Subtitle>
+        </TitleWrapper>
+        <FormWrapper>
+          <InputText />
+          <LoginButton>
+            <LoginText>OK</LoginText>
+          </LoginButton>
+        </FormWrapper>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }
 
