@@ -2,23 +2,31 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { Provider, useSelector } from 'react-redux';
 
-import Home from './src/pages/Home';
-import Login from './src/pages/Login';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AuthRoutes from './src/routes/AuthRoutes';
+import UnAuthRoutes from './src/routes/UnAuthRoutes';
+
 import store from './src/redux/store/store';
+
 import { IUser } from './src/utils/interfaces';
 
 function Routes() {
   const { isLogged } = useSelector((state: IUser) => state.user);
+
   return (
-    <NavigationContainer>{isLogged ? <Home /> : <Login />}</NavigationContainer>
+    <NavigationContainer>
+      {isLogged ? <AuthRoutes /> : <UnAuthRoutes />}
+    </NavigationContainer>
   );
 }
 
 function App() {
   return (
-    <Provider store={store}>
-      <Routes />
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </SafeAreaProvider>
   );
 }
 

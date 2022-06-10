@@ -17,15 +17,11 @@ import {
 function Login() {
   const [name, setName] = React.useState('');
   const dispatch = useDispatch();
-  const { success, error } = useSnackbar();
+  const { success } = useSnackbar();
 
   const handleLogin = () => {
-    try {
-      dispatch(changeUser(name));
-      success('Usuário salvo com sucesso!');
-    } catch (err) {
-      error('Não foi possível salvar o usuário no storage');
-    }
+    dispatch(changeUser(name));
+    success(`Seja bem vindo ${name}!`);
   };
 
   return (

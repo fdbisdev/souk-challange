@@ -1,15 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { IUser } from '../../utils/interfaces';
-
-const storeUserInStorage = async (user: IUser) => {
-  try {
-    await AsyncStorage.setItem('@user', JSON.stringify(user));
-  } catch (err: any) {
-    throw new Error(err);
-  }
-};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -19,12 +10,7 @@ export const userSlice = createSlice({
   },
   reducers: {
     changeUser: (state, { payload }) => {
-      try {
-        storeUserInStorage(payload);
-        return { ...state, isLogged: true, name: payload };
-      } catch (err: any) {
-        throw new Error(err);
-      }
+      return { ...state, isLogged: true, name: payload };
     },
     logOut: state => {
       return { ...state, isLogged: false, name: '' };
