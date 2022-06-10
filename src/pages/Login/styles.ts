@@ -4,7 +4,7 @@ import colors from '../../utils/colors';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  background: #333;
+  background: ${colors.primary};
   padding-top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
   align-items: center;
   justify-content: center;
@@ -23,7 +23,7 @@ export const Subtitle = styled.Text`
 `;
 
 export const FormWrapper = styled.View`
-  width: 90%;
+  width: 94%;
   margin-top: 48px;
   flex-direction: row;
   align-items: center;
@@ -32,7 +32,7 @@ export const FormWrapper = styled.View`
 
 export const InputText = styled.TextInput`
   font-size: 18px;
-  width: 80%;
+  width: 81%;
   line-height: 16px;
   padding-left: 16px;
   color: ${colors.black};

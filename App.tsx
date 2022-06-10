@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider, useSelector } from 'react-redux';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'react-native';
 import AuthRoutes from './src/routes/AuthRoutes';
 import UnAuthRoutes from './src/routes/UnAuthRoutes';
 
@@ -24,6 +25,11 @@ function App() {
   return (
     <SafeAreaProvider>
       <Provider store={store}>
+        <StatusBar
+          translucent
+          barStyle="light-content"
+          backgroundColor="transparent"
+        />
         <Routes />
       </Provider>
     </SafeAreaProvider>

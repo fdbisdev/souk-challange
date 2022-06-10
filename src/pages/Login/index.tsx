@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { changeUser } from '../../redux/slices/user';
 import useSnackbar from '../../hooks/useSnackbar';
@@ -27,11 +27,6 @@ function Login() {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
-        <StatusBar
-          translucent
-          barStyle="light-content"
-          backgroundColor="transparent"
-        />
         <TitleWrapper>
           <Title>LOGIN</Title>
           <Subtitle>Digite seu nome para continuar</Subtitle>
