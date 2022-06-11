@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import MovieList from '../../components/MovieList';
 import { IUser } from '../../utils/interfaces';
@@ -12,9 +12,9 @@ import {
 } from './styles';
 
 function Home() {
-  const [userName, setUserName] = React.useState('');
-  const [popular, setPopular] = React.useState(false);
-  const [upcoming, setUpcoming] = React.useState(true);
+  const [userName, setUserName] = useState('');
+  const [popular, setPopular] = useState(false);
+  const [upcoming, setUpcoming] = useState(true);
 
   const { name } = useSelector((state: IUser) => state.user);
 
@@ -43,7 +43,7 @@ function Home() {
           <ButtonText isSelected={popular}>Popular</ButtonText>
         </SelectTypeButton>
       </ButtonWrapper>
-      <MovieList movieType={popular ? 'Popular' : 'Upcoming'} />
+      <MovieList popular={popular} upcoming={upcoming} />
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { changeUser } from '../../redux/slices/user';
@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 function Login() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = useState('');
   const dispatch = useDispatch();
   const { success } = useSnackbar();
 

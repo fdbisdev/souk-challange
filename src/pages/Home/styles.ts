@@ -5,6 +5,7 @@ import { IButtonProps } from '../../utils/interfaces';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
+  width: 100%;
   padding-top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
   background: ${colors.primary};
 `;
