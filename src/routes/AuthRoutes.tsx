@@ -1,13 +1,21 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../pages/Home';
-
-type RootParamList = {
-  Home: undefined;
-  AuthRoutes: undefined;
-};
+import MovieDetails from '../pages/MovieDetails';
+import { MovieDetailsProps, RootParamList } from '../utils/interfaces';
 
 const Stack = createStackNavigator();
+
+function MovieDetailsScreen({ route }: MovieDetailsProps) {
+  return (
+    <MovieDetails
+      movieName={route.params.movieName}
+      movieDate={route.params.movieDate}
+      movieId={route.params.movieId}
+      movieBanner={route.params.movieBanner}
+    />
+  );
+}
 
 function AuthStack() {
   return (
@@ -18,6 +26,7 @@ function AuthStack() {
       initialRouteName="Home"
     >
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="MovieDetails" component={MovieDetailsScreen} />
     </Stack.Navigator>
   );
 }

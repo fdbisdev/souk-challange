@@ -62,3 +62,37 @@ export type MovieDetailsProps = NativeStackScreenProps<
   StackParamList,
   'MovieDetails'
 >;
+
+export type RootParamList = {
+  Home: undefined;
+  MovieDetails: {
+    movieId: number;
+    movieName: string;
+    movieDate: string;
+    movieBanner: string;
+  };
+  AuthRoutes: undefined;
+};
+
+export interface MovieGenresProp {
+  id: number;
+  name: string;
+}
+
+export interface MovieInfoProps {
+  runtime: number;
+  genres: Array<MovieGenresProp>;
+  overview: string;
+  backdrop_path: string;
+}
+
+export interface CastProps {
+  id: number;
+  original_name: string;
+  character: string;
+  profile_path: string;
+}
+
+export interface MovieCastProps {
+  cast: Array<CastProps>;
+}
