@@ -1,11 +1,27 @@
 import styled from 'styled-components/native';
 import { Dimensions, Platform, StatusBar } from 'react-native';
 import FA5Icon from 'react-native-vector-icons/FontAwesome5';
+import FAIcon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 
 import colors from '../../utils/colors';
+import { IRateIconProps } from '../../utils/interfaces';
 
 const SCREEN_WIDHT = Dimensions.get('screen').width;
+
+export const RateButton = styled.TouchableOpacity``;
+
+export const RateIcon = styled(FAIcon).attrs<IRateIconProps>(({ isRated }) => ({
+  name: isRated ? 'star' : 'star-o',
+  size: 20,
+}))`
+  color: ${colors.white};
+  margin-top: 2px;
+`;
+
+export const MovieDetailsInfo = styled.View`
+  flex-direction: row;
+`;
 
 export const Container = styled.View`
   flex: 1;
@@ -53,7 +69,7 @@ export const MovieDate = styled.Text`
 
 export const MovieDetailsWrapper = styled.View`
   flex-direction: row;
-  align-items: center;
+  justify-content: space-between;
 `;
 
 export const MovieDuration = styled.Text`
@@ -63,7 +79,7 @@ export const MovieDuration = styled.Text`
 `;
 
 export const MovieGenre = styled.Text`
-  margin-top: 4px;
+  margin-top: 6px;
   color: ${colors.grey};
   font-size: 12px;
 `;
@@ -98,14 +114,12 @@ export const BackButtonWrappper = styled.TouchableOpacity`
   z-index: 2;
 `;
 
-export const MovieBannerWrapper = styled.View`
-  position: relative;
-`;
+export const MovieBannerWrapper = styled.View``;
 
 export const MovieBannerEffect = styled(LinearGradient)`
   z-index: 1;
   width: ${SCREEN_WIDHT}px;
-  height: 468px;
+  height: 400px;
   position: absolute;
   opacity: 0.4;
 `;

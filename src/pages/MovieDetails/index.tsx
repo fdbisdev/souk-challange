@@ -32,6 +32,9 @@ import {
   CharacterName,
   ActorInfoWrapper,
   MovieCastEffect,
+  RateIcon,
+  MovieDetailsInfo,
+  RateButton,
 } from './styles';
 import { getMovieCast, getMovieDetails } from '../../services/api';
 import colors from '../../utils/colors';
@@ -56,19 +59,24 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
   );
   const [releaseYear, setReleaseYear] = useState('');
   const [loading, setLoading] = useState(true);
+  const [isRated, setIsRated] = useState(false);
 
   const getMovieBackdropBaseURL = `https://image.tmdb.org/t/p/w500${movieInfo.backdrop_path} `;
 
   const navigation = useNavigation();
 
-  function formateMovieYear() {
+  const formateMovieYear = () => {
     const splitDate = movieDate.split('-');
     setReleaseYear(splitDate[0]);
-  }
+  };
 
-  function handleReturnHome() {
+  const handleReturnHome = () => {
     navigation.goBack();
-  }
+  };
+
+  const handleRateMovie = () => {
+    setIsRated(oldIsRated => !oldIsRated);
+  };
 
   async function getMovieInfo() {
     const movieDetailsData: any = await getMovieDetails(movieId);
@@ -107,14 +115,19 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
               <MovieDate>{releaseYear}</MovieDate>
             </MovieInfoWrapper>
             <MovieDetailsWrapper>
-              <MovieDuration>{movieInfo.runtime}m | </MovieDuration>
-              {movieInfo.genres.map((genre, i: number) => (
-                <MovieGenre key={genre.id}>
-                  {i + 1 < movieInfo.genres.length
-                    ? `${genre.name}, `
-                    : `${genre.name} `}
-                </MovieGenre>
-              ))}
+              <MovieDetailsInfo>
+                <MovieDuration>{movieInfo.runtime}m | </MovieDuration>
+                {movieInfo.genres.map((genre, i: number) => (
+                  <MovieGenre key={genre.id}>
+                    {i + 1 < movieInfo.genres.length
+                      ? `${genre.name}, `
+                      : `${genre.name} `}
+                  </MovieGenre>
+                ))}
+              </MovieDetailsInfo>
+              <RateButton onPress={() => handleRateMovie()}>
+                <RateIcon isRated={isRated} />
+              </RateButton>
             </MovieDetailsWrapper>
           </MovieWrapper>
           <MovieCastWrapper horizontal>

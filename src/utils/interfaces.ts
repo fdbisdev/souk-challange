@@ -14,6 +14,10 @@ export interface IButtonProps {
   isSelected: boolean;
 }
 
+export interface IRateIconProps {
+  isRated: boolean;
+}
+
 export interface IMovie {
   popular: boolean;
   upcoming: boolean;
