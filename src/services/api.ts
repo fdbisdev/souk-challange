@@ -22,3 +22,25 @@ export async function getUpcomingMovies() {
     return error;
   }
 }
+
+export async function getMovieDetails(movieId: number) {
+  const getMovieDetailsURL = `
+  https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=pt-BR`;
+
+  try {
+    const getMovieDetailsResponse = await axios.get(getMovieDetailsURL);
+    return getMovieDetailsResponse;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function getMovieCast(movieId: number) {
+  const getMovieCastURL = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=pt-BR`;
+  try {
+    const getMovieDetailsResponse = await axios.get(getMovieCastURL);
+    return getMovieDetailsResponse;
+  } catch (error) {
+    return error;
+  }
+}

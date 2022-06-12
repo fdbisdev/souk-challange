@@ -15,9 +15,10 @@ export const MovieBanner = styled.ImageBackground`
 export const MovieDateWrapper = styled.View`
   background-color: ${colors.primaryLight};
   border: 1px solid ${colors.white};
-  margin-top: 145px;
-  padding: 4px;
+  margin-top: 138px;
+  padding: 6px;
   align-self: center;
+  border-radius: 4px;
 `;
 
 export const MovieDate = styled.Text`
@@ -27,5 +28,6 @@ export const MovieDate = styled.Text`
 
 export const MovieName = styled.Text`
   color: ${colors.white};
-  padding: 4px;
+  padding: 4px 0px;
+  font-size: 14px;
 `;

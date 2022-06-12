@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
 import { getPopularMovies, getUpcomingMovies } from '../../services/api';
+import colors from '../../utils/colors';
 import { IMovie, MovieArrayListProps } from '../../utils/interfaces';
 import MovieCard from './MovieCard';
 
@@ -31,7 +32,7 @@ function MovieList({ popular, upcoming }: IMovie) {
   if (loading) {
     return (
       <Container>
-        <ActivityIndicator size="large" color="#fff" />
+        <ActivityIndicator size="large" color={colors.white} />
       </Container>
     );
   }
