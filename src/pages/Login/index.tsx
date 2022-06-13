@@ -25,7 +25,10 @@ function Login() {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <TouchableWithoutFeedback
+      testID="KeyboardDismissButton"
+      onPress={() => Keyboard.dismiss()}
+    >
       <Container>
         <TitleWrapper>
           <Title>LOGIN</Title>
@@ -33,7 +36,7 @@ function Login() {
         </TitleWrapper>
         <FormWrapper>
           <InputText value={name} onChangeText={setName} />
-          <LoginButton onPress={() => handleLogin()}>
+          <LoginButton testID="loginButton" onPress={() => handleLogin()}>
             <LoginText>OK</LoginText>
           </LoginButton>
         </FormWrapper>
