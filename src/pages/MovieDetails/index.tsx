@@ -5,7 +5,13 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Movie, MovieCastProps, MovieInfoProps } from '../../utils/interfaces';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  IMovieRated,
+  Movie,
+  MovieCastProps,
+  MovieInfoProps,
+} from '../../utils/interfaces';
 import {
   Container,
   LoadingContainer,
@@ -37,7 +43,9 @@ import {
   RateButton,
 } from './styles';
 import { getMovieCast, getMovieDetails } from '../../services/api';
+import { addRatedMovie } from '../../redux/slices/movies';
 import colors from '../../utils/colors';
+import useSnackbar from '../../hooks/useSnackbar';
 
 const movieInfoInitialValue: MovieInfoProps = {
   runtime: 0,
@@ -61,9 +69,15 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
   const [loading, setLoading] = useState(true);
   const [isRated, setIsRated] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const { ratedMovies } = useSelector((state: IMovieRated) => state.movies);
+
   const getMovieBackdropBaseURL = `https://image.tmdb.org/t/p/w500${movieInfo.backdrop_path} `;
 
   const navigation = useNavigation();
+
+  const { success } = useSnackbar();
 
   const formateMovieYear = () => {
     const splitDate = movieDate.split('-');
@@ -74,8 +88,23 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
     navigation.goBack();
   };
 
+  const checkIfRated = () => {
+    const movie = ratedMovies.find(
+      (ratedMovie: IMovieRated) => ratedMovie.movie === movieName,
+    );
+    if (movie) {
+      setIsRated(true);
+    }
+  };
+
   const handleRateMovie = () => {
     setIsRated(oldIsRated => !oldIsRated);
+    const movieRated = {
+      movie: movieName,
+      rate: !isRated,
+    };
+    dispatch(addRatedMovie(movieRated));
+    success('Filme avaliado com sucesso!');
   };
 
   async function getMovieInfo() {
@@ -90,6 +119,7 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
     setTimeout(() => {
       getMovieInfo();
       formateMovieYear();
+      checkIfRated();
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

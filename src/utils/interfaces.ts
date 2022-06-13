@@ -100,3 +100,8 @@ export interface CastProps {
 export interface MovieCastProps {
   cast: Array<CastProps>;
 }
+
+export interface IMovieRated {
+  movie: string;
+  rate: boolean;
+}
