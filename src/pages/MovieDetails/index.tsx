@@ -116,11 +116,9 @@ function MovieDetails({ movieName, movieDate, movieId, movieBanner }: Movie) {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getMovieInfo();
-      formateMovieYear();
-      checkIfRated();
-    }, 1000);
+    getMovieInfo();
+    formateMovieYear();
+    checkIfRated();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

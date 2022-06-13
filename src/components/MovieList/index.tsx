@@ -50,9 +50,10 @@ function MovieList({ popular, upcoming }: IMovie) {
   }
 
   return (
-    <Container>
+    <Container testID="movieList">
       {popular && !upcoming ? (
         <FlatList
+          testID="popularList"
           data={popularMoviesList}
           keyExtractor={item => String(item.id)}
           numColumns={3}
@@ -60,6 +61,7 @@ function MovieList({ popular, upcoming }: IMovie) {
         />
       ) : (
         <FlatList
+          testID="upcomingList"
           data={upcomingMoviesList}
           numColumns={3}
           keyExtractor={item => String(item.id)}

@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page should render correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#333",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "paddingTop": 0,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "bold",
+          "marginTop": "5%",
+        },
+      ]
+    }
+  >
+    Olá, 
+    test
+    !
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-evenly",
+          "marginTop": "5%",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ffffff",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "opacity": 1,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "width": "40%",
+        }
+      }
+      testID="upcomingMovie"
+    >
+      <Text
+        isSelected={true}
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "color": "#000000",
+              "fontSize": 18,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+      >
+        Upcoming
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#333",
+          "borderColor": "#ffffff",
+          "borderRadius": 8,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "opacity": 1,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+          "width": "40%",
+        }
+      }
+      testID="popularMovie"
+    >
+      <Text
+        isSelected={false}
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "color": "#ffffff",
+              "fontSize": 18,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+      >
+        Popular
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+          "marginTop": "5%",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <ActivityIndicator
+      color="#ffffff"
+      size="large"
+    />
+  </View>
+</RCTSafeAreaView>
+`;

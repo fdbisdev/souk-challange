@@ -36,10 +36,18 @@ function Home() {
     <Container>
       <Title>Olá, {userName}!</Title>
       <ButtonWrapper>
-        <SelectTypeButton isSelected={upcoming} onPress={selectPopularMovies}>
+        <SelectTypeButton
+          testID="upcomingMovie"
+          isSelected={upcoming}
+          onPress={selectPopularMovies}
+        >
           <ButtonText isSelected={upcoming}>Upcoming</ButtonText>
         </SelectTypeButton>
-        <SelectTypeButton isSelected={popular} onPress={selectUpcomingMovies}>
+        <SelectTypeButton
+          testID="popularMovie"
+          isSelected={popular}
+          onPress={selectUpcomingMovies}
+        >
           <ButtonText isSelected={popular}>Popular</ButtonText>
         </SelectTypeButton>
       </ButtonWrapper>
