@@ -48,10 +48,10 @@
    First of all, correctly configure the React Native development environment on your machine, see https://react-native.rocketseat.dev/
    
    - Clone this repository:
-   $ git clone https://github.com/fdbisdev/rentx rentx
+   $ git clone https://github.com/fdbisdev/souk-challange souk-challange
 
    - Enter in directory:
-   $ cd rentx
+   $ cd souk-challange
 
    - For install dependencies:
    $ yarn
