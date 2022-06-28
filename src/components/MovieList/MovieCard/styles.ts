@@ -2,14 +2,16 @@ import styled from 'styled-components/native';
 import colors from '../../../utils/colors';
 
 export const Container = styled.TouchableOpacity`
-  margin-bottom: 16px;
-  max-width: 130px;
+  margin-bottom: 12px;
   margin-left: 4px;
+  margin-right: 4px;
+  max-width: 115px;
+  align-items: center;
 `;
 
 export const MovieBanner = styled.ImageBackground`
-  height: 175px;
-  width: 125px;
+  height: 168px;
+  width: 108px;
 `;
 
 export const MovieDateWrapper = styled.View`
@@ -28,6 +30,6 @@ export const MovieDate = styled.Text`
 
 export const MovieName = styled.Text`
   color: ${colors.white};
-  padding: 4px 0px;
+  padding: 4px 2px;
   font-size: 14px;
 `;

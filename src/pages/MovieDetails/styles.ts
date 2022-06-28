@@ -16,7 +16,7 @@ export const RateIcon = styled(FAIcon).attrs<IRateIconProps>(({ isRated }) => ({
   size: 20,
 }))`
   color: ${colors.white};
-  margin-top: 2px;
+  margin-top: 6px;
 `;
 
 export const MovieDetailsInfo = styled.View`
@@ -58,13 +58,14 @@ export const MovieInfoWrapper = styled.View`
 
 export const MovieName = styled.Text`
   color: ${colors.white};
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 export const MovieDate = styled.Text`
   color: ${colors.grey};
+  top: 2px;
   margin-left: 6px;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const MovieDetailsWrapper = styled.View`
@@ -73,9 +74,9 @@ export const MovieDetailsWrapper = styled.View`
 `;
 
 export const MovieDuration = styled.Text`
-  margin-top: 4px;
+  margin-top: 6px;
   color: ${colors.grey};
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const MovieGenre = styled.Text`
@@ -109,7 +110,7 @@ export const BackButton = styled(FA5Icon).attrs({
 
 export const BackButtonWrappper = styled.TouchableOpacity`
   position: absolute;
-  top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}px;
+  top: ${Platform.OS === 'android' ? StatusBar.currentHeight + 10 : 0}px;
   left: 8px;
   z-index: 2;
 `;
@@ -162,7 +163,7 @@ export const ActorInfoWrapper = styled.View`
 
 export const MovieDescriptionText = styled.Text`
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 4px;
   letter-spacing: 1.05px;
   line-height: 22px;
